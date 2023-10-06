@@ -1,11 +1,11 @@
 {
-  "clientId": "935280263703953478", // The id of the discord bot
-  "guildId": "1047303994546061372", // The id of the discord server
+  "clientId": "1093621508414386267", // The id of the discord bot
+  "guildId": "888181255466803210", // The id of the discord server
   "mainColor": "f6c42f", // The hex color of the embeds by default
   "lang": "main", // If you want to set english please set "main"
 
 
-  "openTicketChannelId": "1047303995493982244", // The id of the channel where the message to create a ticket will be sent
+  "openTicketChannelId": "1068220062370123876", // The id of the channel where the message to create a ticket will be sent
   "ticketTypes": [ // You have a limit of 25 types (the limit of Discord)
     {
       "codeName": "category-one", // The name need to be in lowercase
@@ -43,7 +43,7 @@
   "pingRoleWhenOpened": true,
   "roleToPingWhenOpenedId": "123456789123456789", // The role to ping when a ticket is opened
   "logs": true,
-  "logsChannelId": "787828940228132899", // The id of the channel where the logs will be sent
+  "logsChannelId": "1093681648878485504", // The id of the channel where the logs will be sent
   "claimButton": true,
   "whoCanCloseTicket": "STAFFONLY", // STAFFONLY (roles configured at "rolesWhoHaveAccessToTheTickets") or EVERYONE
   "closeButton": true, // If false the ticket can be closed only by doing /closes
