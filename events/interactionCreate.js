@@ -1,5 +1,4 @@
 const {PermissionFlagsBits} = require('discord.js');
-
 module.exports = {
 	name: 'interactionCreate',
 	once: false,
@@ -15,35 +14,10 @@ module.exports = {
         parent: ticketType.categoryId,
         permissionOverwrites: [
           {
-            
-            id: '1047303994546061380',
+            id: interaction.guild.roles.everyone,
             deny: [PermissionFlagsBits.ViewChannel]
-          },
-
-          {
-            
-            id: '1047303994546061379',
-            deny: [PermissionFlagsBits.ViewChannel]
-          },
-
-          {
-            
-            id: '1047303994567041034',
-            deny: [PermissionFlagsBits.ViewChannel]
-          },
-
-          {
-            
-            id: '1047303994546061372',
-            deny: [PermissionFlagsBits.ViewChannel]
-          },
-
-          {
-            
-            id: '1047303994567041035',
-            deny: [PermissionFlagsBits.ViewChannel]
-          }]
-
+          }
+        ]
       }).then(async channel => {
         client.log("ticketCreate", {
           user: {
@@ -103,7 +77,9 @@ module.exports = {
           .replace('CATEGORYNAME', ticketType.name)
           .replace('REASON', reason))
         .setFooter({
-          text: "is.gd/ticketbot" + client.embeds.ticketOpened.footer.text.replace("is.gd/ticketbot", ""), // Please respect the LICENSE :D
+          // Please respect the project by keeping the credits, (if it is too disturbing you can credit me in the "about me" of the bot discord)
+          text: "Oyoom Help" + client.embeds.ticketOpened.footer.text.replace("Oyoom Help", ""), // Please respect the LICENSE :D
+          // Please respect the project by keeping the credits, (if it is too disturbing you can credit me in the "about me" of the bot discord)
           iconUrl: client.embeds.ticketOpened.footer.iconUrl
         });
 
@@ -141,7 +117,7 @@ module.exports = {
 
         const body = {
           embeds: [ticketOpenedEmbed],
-          content: `<@${interaction.user.id}> ${client.config.pingRoleWhenOpened ? `<@&${client.config.roleToPingWhenOpenedId}>` : ''}`,
+          content: `<@${interaction.user.id}> ${client.config.pingRoleWhenOpened ? client.config.roleToPingWhenOpenedId.map(x => `<@&${x}>`).join(', ') : ''}`,
         };
 
         if (row.components.length > 0) body.components = [row];
@@ -177,21 +153,22 @@ module.exports = {
 
         // Make a select menus of all tickets types
 
-        const row = new client.discord.ActionRowBuilder()
-        .addComponents(
-          new client.discord.SelectMenuBuilder()
-            .setCustomId('selectTicketType')
+        const row = new client.discord.ActionRowBuilder().addComponents(
+          new client.discord.StringSelectMenuBuilder()
+            .setCustomId("selectTicketType")
             .setPlaceholder(client.locales.other.selectTicketTypePlaceholder)
             .setMaxValues(1)
             .addOptions(
-              client.config.ticketTypes.map(x => {
-                const options = new client.discord.SelectMenuOptionBuilder()
-                options.setLabel(x.name)
-                options.setValue(x.codeName)
-                if (x.emoji) options.setEmoji(x.emoji)
-                return options
+              client.config.ticketTypes.map((x) => {
+                const a = {
+                  label: x.name,
+                  value: x.codeName,
+                };
+                if (x.description) a.description = x.description;
+                if (x.emoji) a.emoji = x.emoji;
+                return a;
               })
-            ),
+            )
         );
 
         interaction.reply({
@@ -221,7 +198,7 @@ module.exports = {
       }
     };
 
-    if (interaction.isSelectMenu()) {
+    if (interaction.isStringSelectMenu()) {
       if (interaction.customId === "selectTicketType") {
         const ticketType = client.config.ticketTypes.find(x => x.codeName === interaction.values[0]);
         if (!ticketType) return console.error(`Ticket type ${interaction.values[0]} not found!`);

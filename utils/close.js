@@ -71,16 +71,9 @@ module.exports = {
       components: msg.components
     }).catch(e => console.log(e));
 
-    let attachment = await discordTranscripts.createTranscript(interaction.channel, {
-      returnType: 'buffer',
-      fileName: 'transcript.html',
-      minify: true,
-      saveImages: true,
-      useCDN: true,
-      poweredBy: false
-    });
-
     async function close(res) {
+      if (client.config.closeTicketCategoryId) interaction.channel.setParent(client.config.closeTicketCategoryId).catch(e => console.log(e));;
+      
       interaction.channel.send({
         content: client.locales.ticketTranscriptCreated.replace('TRANSCRIPTURL', `<https://transcript.cf/${res.data.id}>`),
       }).catch(e => console.log(e));
@@ -113,7 +106,9 @@ module.exports = {
         .replace('CLOSERNAME', interaction.user.tag)
       )
       .setFooter({
+        // Please respect the project by keeping the credits, (if it is too disturbing you can credit me in the "about me" of the bot discord)
         text: "is.gd/ticketbot" + client.embeds.ticketClosedDM.footer.text.replace("is.gd/ticketbot", ""), // Please respect the LICENSE :D
+        // Please respect the project by keeping the credits, (if it is too disturbing you can credit me in the "about me" of the bot discord)
         iconUrl: client.embeds.ticketClosedDM.footer.iconUrl
       })
 
@@ -124,13 +119,23 @@ module.exports = {
       });
     };
 
+		let attachment = await discordTranscripts.createTranscript(interaction.channel, {
+      returnType: 'buffer',
+      fileName: 'transcript.html',
+      minify: true,
+      saveImages: true,
+      useCDN: true,
+      poweredBy: false
+    });
+
     if (Buffer.byteLength(attachment) > 18990000) {
       attachment = await discordTranscripts.createTranscript(interaction.channel, {
         returnType: 'buffer',
         fileName: 'transcript.html',
         minify: true,
         saveImages: false,
-        useCDN: true
+        useCDN: true,
+				poweredBy: false
       });
 
       axios.post('https://transcript.cf/upload', {buffer: attachment}, {maxBodyLength: 104857600, maxContentLength: 104857600}).then(res => {

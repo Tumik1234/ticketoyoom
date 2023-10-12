@@ -17,14 +17,15 @@ process.stdout.write(`
 \x1b[38;2;188;76;255m   ██║   ██║██║     ██╔═██╗ ██╔══╝     ██║       ██╔══██╗██║   ██║   ██║   
 \x1b[38;2;205;54;255m   ██║   ██║╚██████╗██║  ██╗███████╗   ██║       ██████╔╝╚██████╔╝   ██║   
 \x1b[38;2;222;0;255m   ╚═╝   ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝   ╚═╝       ╚═════╝  ╚═════╝    ╚═╝\x1b[0m
-                    https://github.com/Sayrix/ticket-bot
+                    
 
 Connecting to Discord...`)
 
 const client = new Client({ intents: [
   GatewayIntentBits.Guilds,
   GatewayIntentBits.GuildMessages,
-  GatewayIntentBits.MessageContent
+  GatewayIntentBits.MessageContent,
+  GatewayIntentBits.GuildMembers
 ] });
 
 // All variables stored in the client object

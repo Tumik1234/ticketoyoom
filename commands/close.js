@@ -3,7 +3,7 @@ const { SlashCommandBuilder } = require('discord.js');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('close')
-		.setDescription('Close the ticket'),
+		.setDescription('Zamknij'),
 	async execute(interaction, client) {
     if (client.config.whoCanCloseTicket === 'STAFFONLY' && !interaction.member.roles.cache.some(r => client.config.rolesWhoHaveAccessToTheTickets.includes(r.id))) return interaction.reply({
       content: client.locales.ticketOnlyClosableByStaff,

@@ -1,19 +1,17 @@
 {
   "embeds": {
     "openTicket": {
-      "title": "Open a ticket",
-      "description": "Click on the button to start opening a ticket",
+      "title": "Ticket",
+      "description": "Witaj tutaj stworzysz ticket taki jaki określa sytułacje dla której tu przybyłeś, jeżeli masz jaki koliwek problem, uwage lub zauważalny błąd to kliknij dany przycisk `Otwórz Ticket` i skontaktuj się z nami.",
       "footer": {
-        "text": "is.gd/ticketbot",
-        "iconUrl": ""
+        "text": "Oyoom Help"
       }
     },
     "ticketOpened": {
       "title": "Ticket CATEGORYNAME",
       "description": "A staff will reply you as soon as possible!",
       "footer": {
-        "text": "is.gd/ticketbot",
-        "iconUrl": ""
+        "text": "Oyoom Help"
       }
     },
     "ticketClosed": {
@@ -24,48 +22,47 @@
       "title": "Ticket closed",
       "description": "The ticket n°TICKETCOUNT has been closed by CLOSERNAME with the following reason: `REASON`\n\nHere is the transcript of the ticket: TRANSCRIPTURL",
       "footer": {
-        "text": "is.gd/ticketbot",
-        "iconUrl": ""
+        "text": "Oyoom Help"
       }
     }
   },
   "modals": {
     "reasonTicketOpen": {
-      "title": "Open ticket",
-      "label": "The reason of your ticket",
-      "placeholder": "Please enter the reason of why you are opening a ticket"
+      "title": "Otwórz Ticket",
+      "label": "Powód do twojego ticketu",
+      "placeholder": "Proszę podać powód dla którego stworzyłeś/aś bilet!"
     },
     "reasonTicketClose": {
-      "title": "Close ticket",
-      "label": "The reason of the ticket closure",
-      "placeholder": "Please enter the reason of why you are closing the ticket"
+      "title": "Zamknij Ticket",
+      "label": "Powód do zamknięcia biletu.",
+      "placeholder": "Proszę podać powód dla którego zamknełeś/aś bilet!"
     }
   },
   "buttons": {
     "close": {
-      "label": "Close ticket",
+      "label": "Zamknij Ticket",
       "emoji": "🔒"
     },
     "claim": {
-      "label": "Claim",
+      "label": "Odbierz",
       "emoji": "🙋"
     }
   },
-  "ticketOpenedMessage": "Ticket opened! TICKETCHANNEL",
-  "ticketOnlyClaimableByStaff": "The ticket can only be claimed by a staff!",
-  "ticketAlreadyClaimed": "The ticket is already claimed!",
-  "ticketClaimedMessage": "> Ticket claimed by USER",
-  "ticketOnlyClosableByStaff": "Only staff can close the ticket!",
-  "ticketAlreadyClosed": "The ticket is already closed!",
-  "ticketCreatingTranscript": "> Creating transcript...",
-  "ticketTranscriptCreated": "> Transcript created! TRANSCRIPTURL",
-  "ticketLimitReached": "You can only have TICKETLIMIT tickets opened at the same time!",
+  "ticketOpenedMessage": "Ticket otwarty! TICKETCHANNEL",
+  "ticketOnlyClaimableByStaff": "Ticket moze być odebrany tylko przez Administracje!",
+  "ticketAlreadyClaimed": "Ticket został już odebrany!",
+  "ticketClaimedMessage": "> Ticket odebrany przez USER",
+  "ticketOnlyClosableByStaff": "Tylko administracja może zamknąć ticket!",
+  "ticketAlreadyClosed": "Ticket został juz zamknięty!",
+  "ticketCreatingTranscript": "> Tworzenie transkrypcji...",
+  "ticketTranscriptCreated": "> Transkrypcja stworzona! TRANSCRIPTURL",
+  "ticketLimitReached": "Możesz mieć tylko TICKETLIMIT bilety otworzone w tym samym czasie!",
 
   "other": {
-    "openTicketButtonMSG": "Open a ticket",
-    "deleteTicketButtonMSG": "Delete ticket",
-    "selectTicketTypePlaceholder": "Select a ticket type",
-    "claimedBy": "**Claimed By**: USER",
-    "noReasonGiven": "No reason given"
+    "openTicketButtonMSG": "Otwórz Ticket",
+    "deleteTicketButtonMSG": "Usuń Ticket",
+    "selectTicketTypePlaceholder": "Wybierz typ biletu",
+    "claimedBy": "**Odebrano przez**: USER",
+    "noReasonGiven": "Nie podano powodu"
   }
 }

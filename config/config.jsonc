@@ -4,49 +4,42 @@
   "mainColor": "f6c42f", // The hex color of the embeds by default
   "lang": "main", // If you want to set english please set "main"
 
-
-  "openTicketChannelId": "1068220062370123876", // The id of the channel where the message to create a ticket will be sent
+  "closeTicketCategoryId": "1063452559907487864", // The id of the category where a closed ticket will be moved to
+  "openTicketChannelId": "1159787926008381441", // The id of the channel where the message to create a ticket will be sent
+  
   "ticketTypes": [ // You have a limit of 25 types (the limit of Discord)
     {
       "codeName": "category-one", // The name need to be in lowercase
-      "name": "TICKETS", // The name that will be displayed in the ticket
-      "emoji": "💡", // The emoji of the type (can be blank)
-      "color": "f6c42f", // Can be a hex color or blank to use the main color
-      "categoryId": "1051275437520728176", // The category id where the tickets will be created
-      "customDescription": "Please explain your suggestion in detail. If you have any images, please attach them to your message.\n\nReason: REASON", // The custom description of the ticket type (set to blank to use the default description)
+      "name": "Ticket", // The name that will be displayed in the ticket
+      "description": "Tutaj możesz otworzyć ticket który umożliwi ci szybki kontakt z administaracją serwera.", // The description of the Ticket in Create Ticket Menu
+      "emoji": "🎫", // The emoji of the type (can be blank)
+      "color": "#f8312f", // Can be a hex color or blank to use the main color
+      "categoryId": "1063452559907487864", // The category id where the tickets will be created
+      "customDescription": "Proszę wyjaśnić swój report w detalach. Jeżeli masz jakieś zdjęcia dołącz je do wiadomości.\n\nReason: REASON", // The custom description of the ticket type (set to blank to use the default description)
       "askReason": true // If the bot should ask the reason of the ticket
     },
     {
       "codeName": "category-two", // The name need to be in lowercase
-      "name": "Category Two", // The name that will be displayed in the ticket
+      "name": "Błąd", // The name that will be displayed in the ticket
+      "description": "Tutaj możesz opisać błąd jaki napotkałeś/aś na naszym serwerze.", // The description of the Ticket in Create Ticket Menu
       "emoji": "🛑", // The emoji of the type (can be blank)
       "color": "#f8312f", // Can be a hex color or blank to use the main color
-      "categoryId": "", // The category id where the tickets will be created
-      "customDescription": "Please explain your report in detail. If you have any images, please attach them to your message.\n\nReason: REASON", // The custom description of the ticket type (set to blank to use the default description)
-      "askReason": false // If the bot should ask the reason of the ticket
-    },
-    {
-      "codeName": "other", // The name need to be in lowercase
-      "name": "Other", // The name that will be displayed in the ticket
-      "emoji": "", // The emoji of the type (can be blank)
-      "color": "", // Can be a hex color or blank to use the main color
-      "categoryId": "", // The category id where the tickets will be created
-      "customDescription": "", // The custom description of the ticket type (set to blank to use the default description)
-      "askReason": false // If the bot should ask the reason of the ticket
+      "categoryId": "1160701380403662848", // The category id where the tickets will be created
+      "customDescription": "Proszę wyjaśnić swój report w detalach. Jeżeli masz jakieś zdjęcia dołącz je do wiadomości.\n\nReason: REASON", // The custom description of the ticket type (set to blank to use the default description)
+      "askReason": true // If the bot should ask the reason of the ticket
     }
   ],
   "ticketNameOption": "Ticket-TICKETCOUNT", // Here is all parameter: USERNAME, USERID, TICKETCOUNT
   "rolesWhoHaveAccessToTheTickets": [
-    "123456789123456789",
-    "987654321987654321"
+    "295160272388227073"
   ], // Roles who can access to the tickets
   "pingRoleWhenOpened": true,
-  "roleToPingWhenOpenedId": "123456789123456789", // The role to ping when a ticket is opened
+  "roleToPingWhenOpenedId": ["123456789123456789"], // The role to ping when a ticket is opened
   "logs": true,
-  "logsChannelId": "1093681648878485504", // The id of the channel where the logs will be sent
+  "logsChannelId": "", // The id of the channel where the logs will be sent
   "claimButton": true,
   "whoCanCloseTicket": "STAFFONLY", // STAFFONLY (roles configured at "rolesWhoHaveAccessToTheTickets") or EVERYONE
   "closeButton": true, // If false the ticket can be closed only by doing /closes
   "askReasonWhenClosing": true, // If false the ticket will be closed without asking the reason
-  "maxTicketOpened": 1 // The number of tickets the user can open while another one is already open. Set to 0 to unlimited
+  "maxTicketOpened": 2 // The number of tickets the user can open while another one is already open. Set to 0 to unlimited
 }
